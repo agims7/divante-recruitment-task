@@ -1,0 +1,24 @@
+.flex {
+  display: flex;
+}
+
+.full-center {
+  align-items: center;
+  display: flex !important;
+  justify-content: center;
+}
+
+.justify-space-between {
+  align-items: center;
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+  display: flex !important;
+}
+
+.app-content {
+  height: calc(100vh - 98px);
+}

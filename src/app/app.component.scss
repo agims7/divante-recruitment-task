@@ -1,0 +1,48 @@
+@import "../styles/variables";
+
+.toolbar {
+  background: $light-blue;
+  color: $white;
+  font-family: $second-font !important;
+  height: 50px;
+
+  .toolbar-content {
+    align-items: center;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    width: 100%;
+
+    .navigation {
+      .navigation-item {
+        background: $accent;
+        border-radius: 5px;
+        font-size: 17px;
+        line-height: 30px;
+        margin: 0 5px;
+        padding: 5px 10px;
+
+        .navigation-item-routing {
+          background: transparent;
+          color: $white;
+          text-decoration: none;
+        }
+
+        &:hover {
+          background: $very-dark-blue;
+
+          .navigation-item-routing {
+            color: $accent;
+          }
+        }
+      }
+
+      .active {
+        background: $very-dark-blue;
+        color: $accent;
+      }
+    }
+
+  }
+
+}

@@ -1,5 +1,9 @@
 @import './variables';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $main-font;
   font-weight: $main-weight;

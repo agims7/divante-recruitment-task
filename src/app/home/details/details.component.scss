@@ -1,0 +1,58 @@
+@import "../../../styles/variables";
+
+.details-container {
+  width: calc(100vw - 260px - 100px);
+  display: flex;
+  justify-content: center;
+
+  .details-card {
+    background: $light-blue;
+    color: $white;
+    width: 800px;
+
+    .card-content {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100px;
+
+      .title {
+        font-family: $second-font;
+        font-size: 24px;
+      }
+
+      .bottom-section {
+        display: flex;
+        justify-content: space-between;
+
+        .description {
+          font-family: $second-font;
+          font-size: 18px;
+          line-height: 20px;
+          margin: 0;
+        }
+
+        .action-container {
+          align-items: center;
+          display: flex;
+          flex: 0 0 160px;
+          justify-content: center;
+
+          .action-button {
+            background: $accent;
+            color: $white;
+            font-size: 17px;
+            line-height: 30px;
+            padding: 3px 10px;
+
+            &:hover {
+              background: $very-dark-blue;
+              color: $accent;
+            }
+          }
+        }
+      }
+    }
+  }
+}

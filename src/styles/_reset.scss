@@ -6,10 +6,18 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-body {
+html , body {
+	font-size: 16px;
 	line-height: 1;
-	margin: 0;
-	padding: 0;
+	min-height: 100%;
+  font-kerning: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizelegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ol, ul {
@@ -31,6 +39,16 @@ table {
 	border-spacing: 0;
 }
 
-a{
+a {
 	text-decoration-line: none;
+}
+
+:focus {
+  outline: none;
+}
+
+
+button {
+  border: none;
+  outline: none;
 }
