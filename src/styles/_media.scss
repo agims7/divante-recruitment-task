@@ -1,0 +1,34 @@
+$mobile-screen: 30em;
+$tablet-screen: 48em;
+$laptop-screen: 64em;
+$desktop-screen: 75em;
+
+@mixin small-mobile {
+  @media (max-width: #{$mobile-screen - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile-and-up {
+  @media (min-width: #{$mobile-screen}) {
+    @content;
+  }
+}
+
+@mixin tablet-and-up {
+  @media (min-width: #{$tablet-screen}) {
+    @content;
+  }
+}
+
+@mixin laptop-and-up {
+  @media (min-width: #{$laptop-screen}) {
+    @content;
+  }
+}
+
+@mixin desktop-and-up {
+  @media (min-width: #{$desktop-screen}) {
+    @content;
+  }
+}
