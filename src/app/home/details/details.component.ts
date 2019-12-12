@@ -13,6 +13,19 @@ export class DetailsComponent implements OnInit {
 
   public starship: Starship = null;
   
+  private availableImages: string[] = [
+    'Death Star',
+    'EF76 Nebulon-B escort frigate',
+    'Executor',
+    'Imperial shuttle',
+    'Millennium Falcon',
+    'Sentinel-class landing craft',
+    'Slave 1',
+    'TIE Advanced x1',
+    'X-wing',
+    'Y-wing'
+  ]
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private cartService: CartService,
@@ -24,7 +37,11 @@ export class DetailsComponent implements OnInit {
   }
 
   public getStarshipImage(): string {
-    return `../../../assets/img/${this.starship.name}.jpg`;
+    if (this.availableImages.some((image: string) => image === this.starship.name)) {
+      return `../../../assets/img/${this.starship.name}.jpg`;
+    }
+
+    return 'https://via.placeholder.com/800x400'
   }
 
   public addToCart(): void {

@@ -1,7 +1,25 @@
 <div class="list-container">
-  <app-list-element
-    *ngFor="let starship of starships; trackBy: trackByIndex"
-    [starship]="starship"
-    class="single-starship"
-  ></app-list-element>
+  <app-search class="search-field"></app-search>
+
+  <div class="list-content">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  
+    <div
+      *ngIf="!isLoading"
+      class="list"
+    >
+      <app-list-element
+        *ngFor="let starship of starships; trackBy: trackByIndex"
+        [starship]="starship"
+        class="single-starship"
+      ></app-list-element>
+
+      <p
+        *ngIf="!starships.length"
+        class="empty-list"
+      >
+        No data to display
+      </p>
+    </div>
+  </div>
 </div>

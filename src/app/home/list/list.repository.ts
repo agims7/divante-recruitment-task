@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -12,19 +12,32 @@ import { GlobalMapperService } from '@app/shared/global-mapper.service';
 export class ListRepository {
 
   private _starshipListCache: Starship[] = null;
+  private _searchQueryCache: string = null;
 
   constructor(
     private http: HttpClient,
     private globalMapperService: GlobalMapperService
   ) { }
 
-  public getStarShips(): Observable<Starship[]> {
-    if (!!this._starshipListCache) {
+  public getStarShips(searchQuery: string = null): Observable<Starship[]> {
+    if (
+      !!this._starshipListCache &&
+      this._searchQueryCache === searchQuery
+      ) {
       return of(this._starshipListCache);
+    }
+
+    let options = {};
+
+    if (!!searchQuery) {
+      options = {
+        params: new HttpParams().set('search', searchQuery)
+      };
     }
 
     return this.http.get(
       `${environment.url}/starships`,
+      options
     )
       .pipe(
         map((response: any): Starship[] => {
@@ -33,9 +46,11 @@ export class ListRepository {
           );
 
           this._starshipListCache = starshipList;
+          this._searchQueryCache = searchQuery;
 
           return starshipList;
         })
       );
   }
+
 }

@@ -1,0 +1,13 @@
+<mat-form-field class="container">
+  <input
+    [formControl]="search"
+    matInput
+    placeholder="Search"
+  > 
+  <mat-hint
+    *ngIf="search.value.length < 3"
+    align="start"
+  >
+    Please provide at least 3 characters
+  </mat-hint>
+</mat-form-field>
