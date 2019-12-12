@@ -1,9 +1,23 @@
-<div class="justify-space-between cart-element-container">
-  <div class="price">
-    123 zł
+<div class="cart-element-container">
+  <div class="info">
+    <span class="cost">
+      {{ starship.cost_in_credits | currency }}
+    </span>
+  
+    <span class="name">
+      {{ starship.name }}
+    </span>
   </div>
 
-  <div class="name">
-    Książka Williama Shekspira
+  <div class="action-container">
+      <button
+        (click)="removeFromCart()"
+        class="remove-icon"
+        mat-icon-button
+      >
+        <mat-icon>
+          remove_circle_outline
+        </mat-icon>
+      </button>
   </div>
 </div>

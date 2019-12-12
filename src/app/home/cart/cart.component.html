@@ -6,14 +6,24 @@
             shopping_cart
         </mat-icon>
         <span>
-          Cart ( 0 )
+          Cart ( {{cartService.starships.length }} )
         </span>
       </mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
       <div class="cart-list">
-        <app-cart-element></app-cart-element>
+        <app-cart-element
+          *ngFor="let starship of cartService.starships; let i = index; trackBy: trackByIndex"
+          [index]="i"
+          [starship]="starship"
+        ></app-cart-element>
+      </div>
+
+      <div class="cart-summary-cost">
+        <span>
+          Sum: {{ cartService.finalCost | currency }}
+        </span>
       </div>
     </mat-card-content>
   </mat-card>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Starship } from '@app/shared/models/starship.model';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  public starships: Starship[] = [];
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) {
+    this.fetchData();
+  }
 
   ngOnInit() {
+  }
+
+  public trackByIndex(index): number {
+    return index;
+  }
+
+  private fetchData(): void {
+    this.starships = this.activatedRoute.snapshot.data['starships'];
   }
 
 }

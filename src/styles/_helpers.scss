@@ -19,6 +19,6 @@
   display: flex !important;
 }
 
-.app-content {
-  height: calc(100vh - 98px);
+.flex-direction-column {
+  flex-direction: column;
 }

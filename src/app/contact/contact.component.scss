@@ -1,8 +1,11 @@
+@import "../../styles/variables";
+
 .contact-container {
   margin: 24px;
 
   .contact-card {
     align-items: center;
+    color: $very-dark-blue;
     display: flex;
     flex-direction: column;
     height: 450px;
@@ -11,10 +14,11 @@
     width: 650px;
 
     .contact-header-icon {
+      color: $accent;
       font-size: 80px;
       height: 80px;
-      width: 80px;
       margin-bottom: 20px;
+      width: 80px;
     }
 
     .card-title {
@@ -23,11 +27,18 @@
     }
 
     .text-row {
-      margin: 20px;
+      margin-bottom: 20px;
 
       .text {
+        align-items: center;
+        display: flex;
         font-size: 20px;
         line-height: 22px;
+        margin: 8px;
+
+        .text-icon {
+          margin-right: 10px;
+        }
       }
     }
   }

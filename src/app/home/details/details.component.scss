@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .details-container {
-  width: calc(100vw - 260px - 100px);
+  width: calc(100vw - 300px - 100px);
   display: flex;
   justify-content: center;
 
@@ -19,18 +19,32 @@
 
       .title {
         font-family: $second-font;
-        font-size: 24px;
+        font-size: 26px;
       }
 
       .bottom-section {
         display: flex;
         justify-content: space-between;
+        width: 100%;
 
-        .description {
-          font-family: $second-font;
-          font-size: 18px;
-          line-height: 20px;
-          margin: 0;
+        .list {
+          display: flex;
+          flex: 1 1 auto;
+          flex-direction: column;
+
+          .field {
+            font-size: 18px;
+            line-height: 20px;
+            margin: 3px 0;
+    
+            .title {
+              font-size: 12px;
+            }
+    
+            .value {
+              font-weight: 400;
+            }
+          }
         }
 
         .action-container {
@@ -49,6 +63,11 @@
             &:hover {
               background: $very-dark-blue;
               color: $accent;
+            }
+
+            &:disabled {
+              background: $gray;
+              color: $light-text;
             }
           }
         }

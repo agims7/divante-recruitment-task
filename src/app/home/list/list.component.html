@@ -1,6 +1,7 @@
 <div class="list-container">
-<app-list-element></app-list-element>
-<app-list-element></app-list-element>
-<app-list-element></app-list-element>
-<app-list-element></app-list-element>
+  <app-list-element
+    *ngFor="let starship of starships; trackBy: trackByIndex"
+    [starship]="starship"
+    class="single-starship"
+  ></app-list-element>
 </div>

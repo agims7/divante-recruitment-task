@@ -1,19 +1,75 @@
 <div class="details-container">
   <mat-card class="details-card">
-    <img mat-card-image src="https://via.placeholder.com/800x500">
+    <img
+      [src]="getStarshipImage()"
+      mat-card-image
+    >
 
     <mat-card-content class="card-content">
       <h3 class="title">
-        Title
+        {{ starship.name }}
       </h3>
 
       <div class="bottom-section">
-        <p class="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div class="list">
+          <p class="field">
+            <span class="title">
+              Model:
+            </span>
+            <span class="value">
+              {{ starship.model }}
+            </span>
+          </p>
+  
+          <p class="field">
+            <span class="title">
+              Crew:
+            </span>
+            <span class="value">
+              {{ starship.crew }}
+            </span>
+          </p>
+  
+          <p class="field">
+            <span class="title">
+              Passengers:
+            </span>
+            <span class="value">
+              {{ starship.passengers }}
+            </span>
+          </p>
+  
+          <p class="field">
+            <span class="title">
+              Length:
+            </span>
+            <span class="value">
+              {{ starship.length }}
+            </span>
+          </p>
+  
+          <p class="field">
+            <span class="title">
+              Cargo capacity:
+            </span>
+            <span class="value">
+              {{ starship.cargo_capacity }}
+            </span>
+          </p>
+  
+          <p class="field">
+            <span class="title">
+              Cost:
+            </span>
+            <span class="value">
+              {{ starship.cost_in_credits | currency }}
+            </span>
+          </p>
+        </div>
 
         <div class="action-container">
           <button
+            (click)="addToCart()"
             class="action-button"
             mat-raised-button
           >

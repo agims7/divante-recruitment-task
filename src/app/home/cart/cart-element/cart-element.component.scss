@@ -1,18 +1,33 @@
 @import '../../../../styles/variables';
 
 .cart-element-container {
+  align-items:center;
   background: $very-dark-blue;
   border-radius: 5px;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  line-height: 16px;
+  margin: 5px 0;
+  min-height: 50px;
   padding: 5px 8px;
 
-  .price {
+  .info {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cost {
     color: $accent;
     flex: 1 0 50px;
     font-weight: bold;
+    max-height: 16px;
   }
 
   .name {
     flex: 1 1 auto;
     font-weight: 400;
+    max-height: 16px;
   }
 }

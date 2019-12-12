@@ -1,5 +1,12 @@
 .list-container {
   display: flex;
-  justify-content: space-evenly;
-  width: calc(100vw - 260px - 100px);
+  flex-wrap: wrap;
+  justify-content: center;
+  width: calc(100vw - 300px - 100px);
+
+  .single-starship {
+    height: auto;
+    margin: 10px;
+    width: 260px;
+  }
 }

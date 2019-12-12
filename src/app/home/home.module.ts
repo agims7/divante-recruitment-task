@@ -8,10 +8,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartComponent } from './cart/cart.component';
 import { CartElementComponent } from './cart/cart-element/cart-element.component';
 import { DetailsComponent } from './details/details.component';
+import { DetailsRepository } from './details/details.repository';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ListComponent } from './list/list.component';
 import { ListElementComponent } from './list/list-element/list-element.component';
+import { ListRepository } from './list/list.repository';
 
 @NgModule({
   imports: [
@@ -31,5 +33,9 @@ import { ListElementComponent } from './list/list-element/list-element.component
     ListComponent,
     ListElementComponent,
   ],
+  providers: [
+    DetailsRepository,
+    ListRepository,
+  ]
 })
 export class HomeModule { }

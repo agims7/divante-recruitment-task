@@ -1,8 +1,11 @@
+@import "../../styles/variables";
+
 .about-container {
   margin: 24px;
 
   .about-card {
     align-items: center;
+    color: $very-dark-blue;
     display: flex;
     flex-direction: column;
     height: 450px;
@@ -11,6 +14,7 @@
     width: 650px;
 
     .about-header-icon {
+      color: $accent;
       font-size: 80px;
       height: 80px;
       width: 80px;
