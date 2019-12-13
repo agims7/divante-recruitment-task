@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 export class CartService {
 
   public starships: Starship[] = [];
-  public finalCost: number = 0;
+  public finalCost = 0;
   public onCartChange: BehaviorSubject<Starship> = new BehaviorSubject<Starship>(null);
 
   constructor() {
@@ -26,8 +26,8 @@ export class CartService {
 
   private setFinalCost(): void {
     this.finalCost = this.starships.reduce((prev, current) => {
-      return prev + current.cost_in_credits;
-    }, 0)
+      return prev + current.costInCredits;
+    }, 0);
   }
 
 

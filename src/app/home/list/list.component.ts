@@ -17,7 +17,7 @@ import { Starship } from '@app/shared/models/starship.model';
 })
 export class ListComponent implements OnInit, OnDestroy {
 
-  public isLoading: boolean = false;
+  public isLoading = false;
   public starships: Starship[] = [];
 
   private componentSubscription: Subscription = new Subscription();

@@ -15,14 +15,14 @@ export class GlobalMapperService {
       return null;
     }
 
-    const starshipUrlArray = data.url ? data.url.slice(0, -1).split("/") : [];
+    const starshipUrlArray = data.url ? data.url.slice(0, -1).split('/') : [];
     const starshipId = starshipUrlArray.length ? starshipUrlArray[starshipUrlArray.length - 1] : null;
 
     return new Starship(
       starshipId,
       +data.cargo_capacity || 0,
       data.consumables || '',
-      (+data.cost_in_credits)/100000 || 0,
+      ( +data.cost_in_credits ) / 100000 || 0,
       +data.crew || 0,
       +data.length || 0,
       data.model || '',
@@ -39,7 +39,7 @@ export class GlobalMapperService {
       return false;
     }
 
-    return true
+    return true;
   }
 
 }

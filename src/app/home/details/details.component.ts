@@ -12,7 +12,6 @@ import { Starship } from '@app/shared/models/starship.model';
 export class DetailsComponent implements OnInit {
 
   public starship: Starship = null;
-  
   private availableImages: string[] = [
     'Death Star',
     'EF76 Nebulon-B escort frigate',
@@ -24,7 +23,7 @@ export class DetailsComponent implements OnInit {
     'TIE Advanced x1',
     'X-wing',
     'Y-wing'
-  ]
+  ];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,7 +40,7 @@ export class DetailsComponent implements OnInit {
       return `../../../assets/img/${this.starship.name}.jpg`;
     }
 
-    return 'https://via.placeholder.com/800x400'
+    return 'https://via.placeholder.com/800x400';
   }
 
   public addToCart(): void {

@@ -11,8 +11,8 @@ import { GlobalMapperService } from '@app/shared/global-mapper.service';
 @Injectable()
 export class ListRepository {
 
-  private _starshipListCache: Starship[] = null;
-  private _searchQueryCache: string = null;
+  private starshipListCache: Starship[] = null;
+  private searchQueryCache: string = null;
 
   constructor(
     private http: HttpClient,
@@ -21,10 +21,10 @@ export class ListRepository {
 
   public getStarShips(searchQuery: string = null): Observable<Starship[]> {
     if (
-      !!this._starshipListCache &&
-      this._searchQueryCache === searchQuery
+      !!this.starshipListCache &&
+      this.searchQueryCache === searchQuery
       ) {
-      return of(this._starshipListCache);
+      return of(this.starshipListCache);
     }
 
     let options = {};
@@ -45,8 +45,8 @@ export class ListRepository {
             (data: any): Starship => this.globalMapperService.mapToStarship(data)
           );
 
-          this._starshipListCache = starshipList;
-          this._searchQueryCache = searchQuery;
+          this.starshipListCache = starshipList;
+          this.searchQueryCache = searchQuery;
 
           return starshipList;
         })

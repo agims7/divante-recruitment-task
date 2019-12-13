@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { Starship } from '@app/shared/models/starship.model';
 
@@ -8,7 +8,7 @@ import { Starship } from '@app/shared/models/starship.model';
   styleUrls: ['./list-element.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListElementComponent implements OnInit {
+export class ListElementComponent {
 
   @Input()
   public starship: Starship = null;
@@ -28,15 +28,12 @@ export class ListElementComponent implements OnInit {
 
   constructor( ) { }
 
-  ngOnInit() {
-  }
-
   public getStarshipImage(): string {
     if (this.availableImages.some((image: string) => image === this.starship.name)) {
       return `../../../assets/img/${this.starship.name}.jpg`;
     }
 
-    return 'https://via.placeholder.com/200'
+    return 'https://via.placeholder.com/200';
   }
 
   public setRedirectionUrl(): string {

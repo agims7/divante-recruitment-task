@@ -11,7 +11,7 @@ import { GlobalMapperService } from '@app/shared/global-mapper.service';
 @Injectable()
 export class DetailsRepository {
 
-  private _starshipCache: Starship = null;
+  private starshipCache: Starship = null;
 
   constructor(
     private http: HttpClient,
@@ -20,9 +20,9 @@ export class DetailsRepository {
 
   public getStarShip(id: string): Observable<Starship> {
     if (
-      !!this._starshipCache &&
-      this._starshipCache.id === id) {
-      return of(this._starshipCache);
+      !!this.starshipCache &&
+      this.starshipCache.id === id) {
+      return of(this.starshipCache);
     }
 
     return this.http.get(
@@ -30,9 +30,8 @@ export class DetailsRepository {
       )
         .pipe(
           map((response: any): Starship => {
-            this._starshipCache = this.globalMapperService.mapToStarship(response)
-            
-            return this._starshipCache;
+            this.starshipCache = this.globalMapperService.mapToStarship(response);
+            return this.starshipCache;
           })
         );
   }

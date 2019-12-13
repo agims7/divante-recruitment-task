@@ -14,7 +14,7 @@ export class DetailsResolve implements Resolve<Starship> {
   ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Starship> {
-    const starshipId: string = route.params['id'];
+    const starshipId = route.params['id'];
 
     return this.detailsRepository.getStarShip(starshipId)
     .pipe(
