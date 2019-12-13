@@ -1,7 +1,7 @@
-$mobile-screen: 30em;
-$tablet-screen: 48em;
-$laptop-screen: 64em;
-$desktop-screen: 75em;
+$mobile-screen: 30em; // 480px
+$tablet-screen: 48em; // 768px
+$laptop-screen: 64em; // 1024px
+$desktop-screen: 75em; // 1200px
 
 @mixin small-mobile {
   @media (max-width: #{$mobile-screen - 1px}) {

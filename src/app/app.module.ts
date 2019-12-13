@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
-import { UiScrollerModule } from './ui/ui-scroller.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { UiScrollerModule } from './ui/ui-scroller.module';
     BrowserModule,
     PageLoaderModule,
     SharedModule,
-    UiScrollerModule,
 
     // Material
     MatButtonModule,

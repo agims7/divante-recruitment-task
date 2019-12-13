@@ -1,9 +1,14 @@
 @import '../../../styles/variables';
-
+@import '../../../styles/media';
 
 .cart-container {
   height: auto;
-  width: 300px;
+  margin-bottom: 1rem;
+  width: 252px;
+
+  @include tablet-and-up {
+    width: 280px;
+  }
 
   .cart-card {
     background: $dark-blue;

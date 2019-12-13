@@ -1,6 +1,18 @@
+@import '../../styles/media';
+
 .home-container {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 44px;
+  padding: 1.5rem;
+
+  @include tablet-and-up {
+    align-items: flex-start;
+    padding: 2.5rem;
+  }
+
+  @include laptop-and-up {
+    flex-direction: row;
+  }
 }
