@@ -7,7 +7,6 @@ import { Starship } from '@app/shared/models/starship.model';
 import { environment } from '@env/environment';
 import { GlobalMapperService } from '@app/shared/global-mapper.service';
 
-
 @Injectable()
 export class DetailsRepository {
 

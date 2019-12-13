@@ -1,18 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CartService } from './cart.service';
+import { GlobalMapperService } from './global-mapper.service';
 
-describe('Service: CartService', () => {
-  let service: CartService;
+describe('Service: GlobalMapperService', () => {
+  let service: GlobalMapperService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        CartService,
+        GlobalMapperService,
       ],
     });
 
-    service = TestBed.get(CartService);
+    service = TestBed.get(GlobalMapperService);
   });
 
   it('should create', () => {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { CartService } from '@app/shared/cart.service';
 import { Starship } from '@app/shared/models/starship.model';
@@ -9,7 +9,7 @@ import { Starship } from '@app/shared/models/starship.model';
   styleUrls: ['./cart-element.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CartElementComponent implements OnInit {
+export class CartElementComponent {
 
   @Input()
   public starship: Starship = null;
@@ -20,9 +20,6 @@ export class CartElementComponent implements OnInit {
   constructor(
     private cartService: CartService,
   ) { }
-
-  ngOnInit() {
-  }
 
   public removeFromCart(): void {
     this.cartService.starships.splice(this.index, 1);
