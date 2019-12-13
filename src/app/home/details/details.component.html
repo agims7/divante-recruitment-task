@@ -1,8 +1,8 @@
 <div class="details-container">
   <mat-card class="details-card">
     <img
-      [src]="getStarshipImage()"
       mat-card-image
+      src="{{ starship.name | starshipImage:400 }}"
     >
 
     <mat-card-content class="card-content">

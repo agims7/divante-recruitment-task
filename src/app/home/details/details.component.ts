@@ -40,7 +40,7 @@ export class DetailsComponent implements OnInit {
       return `../../../assets/img/${this.starship.name}.jpg`;
     }
 
-    return 'https://via.placeholder.com/500x400';
+    return 'https://via.placeholder.com/400';
   }
 
   public addToCart(): void {

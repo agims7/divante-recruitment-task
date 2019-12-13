@@ -4,8 +4,8 @@
 >
   <mat-card class="list-element-card">
     <img
-      [src]="getStarshipImage() || 'https://via.placeholder.com/150'"
       mat-card-image
+      src="{{ starship.name | starshipImage:200 }}"
     >
 
     <mat-card-content class="card-content">

@@ -11,6 +11,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CartComponent } from './cart/cart.component';
 import { CartElementComponent } from './cart/cart-element/cart-element.component';
+import { CustomPipesModule } from '@app/shared/custom-pipes/custom-pipes.module';
 import { DetailsComponent } from './details/details.component';
 import { DetailsRepository } from './details/details.repository';
 import { HomeComponent } from './home.component';
@@ -23,9 +24,10 @@ import { SearchComponent } from './list/search/search.component';
 @NgModule({
   imports: [
     CommonModule,
+    CustomPipesModule,
     FormsModule,
-    ReactiveFormsModule,
     HomeRoutingModule,
+    ReactiveFormsModule,
 
     // Material
     MatButtonModule,
