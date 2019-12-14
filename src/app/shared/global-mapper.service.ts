@@ -2,13 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { Starship } from './models/starship.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GlobalMapperService {
 
   constructor() { }
-
 
   public mapToStarship(data: any): Starship {
     if (!this.hasData(data)) {

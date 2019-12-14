@@ -2,11 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 import { Starship } from './models/starship.model';
-import { Subscription } from 'rxjs/internal/Subscription';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CartService {
 
   public starships: Starship[] = [];
