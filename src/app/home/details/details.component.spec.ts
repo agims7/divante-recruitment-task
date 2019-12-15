@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { DetailsComponent } from './details.component';
-import { CustomPipesModule } from '@app/shared/custom-pipes/custom-pipes.module';
-import { MatCardModule } from '@angular/material/card';
-import { ActivatedRouteStub } from '@app/mocks/activated-route.stub';
 import { ActivatedRoute } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+
+import { ActivatedRouteStub } from '@app/mocks/activated-route.stub';
 import { CartService } from '@app/shared/cart.service';
+import { CustomPipesModule } from '@app/shared/custom-pipes/custom-pipes.module';
+import { DetailsComponent } from './details.component';
 import { Starship } from '@app/shared/models/starship.model';
 
 describe('DetailsComponent', () => {
@@ -55,5 +55,13 @@ describe('DetailsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  
+  it('should get starships from activatedRoute data on fetchData', () => {
+    // TO DO
+  });
+
+  it('should send onCartChange event with starship to cartService on addToCart', () => {
+    // TO DO
   });
 });

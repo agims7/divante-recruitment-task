@@ -3,8 +3,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { CartElementComponent } from './cart-element.component';
 import { CartService } from '@app/shared/cart.service';
-import { Starship } from '@app/shared/models/starship.model';
 import { CartServiceStub } from '@app/mocks/cart.service.stub';
+import { Starship } from '@app/shared/models/starship.model';
 
 describe('CartElementComponent', () => {
   let component: CartElementComponent;
@@ -15,14 +15,18 @@ describe('CartElementComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CartElementComponent ],
+      declarations: [
+        CartElementComponent
+      ],
       imports: [
         // Mateiral
         MatIconModule,
       ],
       providers: [
-        { provide: CartService,
-          useValue: cartService}
+        {
+          provide: CartService,
+          useValue: cartService
+        }
       ]
     })
     .compileComponents();
@@ -43,6 +47,7 @@ describe('CartElementComponent', () => {
       'Test name',
       55
     );
+    component.index = 0;
 
     fixture.detectChanges();
   });
@@ -51,8 +56,12 @@ describe('CartElementComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create 32432', () => {
+  it('should remove starship from cartService starships array', () => {
     component.removeFromCart();
-    expect(component).toBeTruthy();
+    expect(cartService.starships).toBe([]);
+  });
+
+  it('should send onCartChange event with value null to cartService', () => {
+    // TO DO
   });
 });

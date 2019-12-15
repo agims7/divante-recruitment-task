@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ListElementComponent } from './list-element.component';
-import { CustomPipesModule } from '@app/shared/custom-pipes/custom-pipes.module';
-import { MatCardModule } from '@angular/material/card';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatCardModule } from '@angular/material/card';
+
+import { CustomPipesModule } from '@app/shared/custom-pipes/custom-pipes.module';
+import { ListElementComponent } from './list-element.component';
 import { Starship } from '@app/shared/models/starship.model';
 
 describe('ListElementComponent', () => {
@@ -14,8 +14,8 @@ describe('ListElementComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ListElementComponent ],
       imports: [
-        RouterTestingModule,
         CustomPipesModule,
+        RouterTestingModule,
 
         // Material
         MatCardModule,
@@ -45,5 +45,9 @@ describe('ListElementComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should return correct url on setRedirectionUrl', () => {
+    // TO DO
   });
 });

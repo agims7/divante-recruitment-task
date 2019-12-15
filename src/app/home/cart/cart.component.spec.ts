@@ -36,4 +36,8 @@ describe('CartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return index on trackByIndex', () => {
+    // TO DO
+  });
 });
