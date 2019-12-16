@@ -68,6 +68,9 @@ export class ListComponent implements OnInit, OnDestroy {
       .subscribe(
         (starships: Starship[]) => {
           this.starships = starships;
+        },
+        () => {
+          this.starships = [];
         }
       );
   }

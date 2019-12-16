@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 
 import { ActivatedRouteStub } from '@app/mocks/activated-route.stub';
 import { CartService } from '@app/shared/cart.service';
+import { CartServiceStub } from '@app/mocks/cart.service.stub';
 import { CustomPipesModule } from '@app/shared/custom-pipes/custom-pipes.module';
 import { DetailsComponent } from './details.component';
 import { Starship } from '@app/shared/models/starship.model';
@@ -13,10 +14,12 @@ describe('DetailsComponent', () => {
   let fixture: ComponentFixture<DetailsComponent>;
 
   const activatedRouter = new ActivatedRouteStub();
+  const cartService = new CartServiceStub();
+  const router: jasmine.SpyObj<Router> = jasmine.createSpyObj(['navigate']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailsComponent ],
+      declarations: [DetailsComponent],
       imports: [
         CustomPipesModule,
 
@@ -24,14 +27,21 @@ describe('DetailsComponent', () => {
         MatCardModule,
       ],
       providers: [
-        CartService,
         {
-          provide: ActivatedRoute, 
+          provide: CartService,
+          useValue: cartService
+        },
+        {
+          provide: ActivatedRoute,
           useValue: activatedRouter
+        },
+        {
+          provide: Router,
+          useValue: router
         }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -49,19 +59,42 @@ describe('DetailsComponent', () => {
       'Test name',
       55
     );
-    
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create DetailsComponent', () => {
     expect(component).toBeTruthy();
   });
-  
-  it('should get starships from activatedRoute data on fetchData', () => {
-    // TO DO
+
+  it('should get starships from activatedRoute data with fetchData on init', () => {
+    const newStarship = new Starship(
+      '7',
+      13,
+      '53',
+      1267,
+      55,
+      24,
+      'Test model',
+      'Test name',
+      44
+    );
+
+    activatedRouter.snapshot.data.starship = newStarship;
+    fixture.detectChanges();
+
+    expect(component.starship).toEqual(newStarship);
+  });
+
+  it('should get starships from activatedRoute data with fetchData on init and navigate to the list if starship is null', () => {
+    activatedRouter.snapshot.data = {};
+    fixture.detectChanges();
+
+    expect(router.navigate).toHaveBeenCalledWith(['../']);
   });
 
   it('should send onCartChange event with starship to cartService on addToCart', () => {
-    // TO DO
+    const addToCartSpy = spyOn(cartService.onCartChange, 'next');
+    component.addToCart();
+
+    expect(addToCartSpy).toHaveBeenCalledWith(component.starship);
   });
 });

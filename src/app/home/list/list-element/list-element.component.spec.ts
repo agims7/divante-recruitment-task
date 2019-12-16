@@ -39,15 +39,15 @@ describe('ListElementComponent', () => {
       'Test name',
       55
     );
-    
+
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create ListElementComponent', () => {
     expect(component).toBeTruthy();
   });
 
   it('should return correct url on setRedirectionUrl', () => {
-    // TO DO
+    expect(component.setRedirectionUrl()).toEqual(`/home/details/${component.starship.id}`);
   });
 });

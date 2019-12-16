@@ -3,11 +3,8 @@ import { of } from 'rxjs';
 
 import { Starship } from '@app/shared/models/starship.model';
 
-export class ListRepositoryStub {
-  public getStarShips(): Observable<Starship[]> {
-    return of([
-      new Starship(),
-      new Starship()
-    ]);
+export class DetailsRepositoryStub {
+  public getStarShip(): Observable<Starship> {
+    return of(new Starship());
   }
 }

@@ -4,7 +4,7 @@ describe('Pipe: StarshipImagePipe', () => {
   const pipe = new StarshipImagePipe();
   const defaultImageUrl = 'https://via.placeholder.com/';
 
-  it('should create an instance', () => {
+  it('should create StarshipImagePipe', () => {
     expect(pipe).toBeTruthy();
   });
 

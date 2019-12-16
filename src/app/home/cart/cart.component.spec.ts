@@ -12,7 +12,7 @@ describe('CartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         CartComponent,
         CartElementComponent
       ],
@@ -33,11 +33,14 @@ describe('CartComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create CartComponent', () => {
     expect(component).toBeTruthy();
   });
 
   it('should return index on trackByIndex', () => {
-    // TO DO
+    const trackByIndexSpy = spyOn(component, 'trackByIndex');
+    component.trackByIndex(4);
+
+    expect(trackByIndexSpy).toHaveBeenCalledWith(4);
   });
 });

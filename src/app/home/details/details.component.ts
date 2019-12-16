@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CartService } from '@app/shared/cart.service';
 import { Starship } from '@app/shared/models/starship.model';
@@ -9,14 +9,17 @@ import { Starship } from '@app/shared/models/starship.model';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit{
 
   public starship: Starship = null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private cartService: CartService,
-  ) {
+    private router: Router,
+  ) { }
+
+  ngOnInit(): void {
     this.fetchData();
   }
 
@@ -26,6 +29,14 @@ export class DetailsComponent {
 
   private fetchData(): void {
     this.starship = this.activatedRoute.snapshot.data['starship'];
+
+    if (!this.starship) {
+      this.navigateToList();
+    }
+  }
+
+  private navigateToList(): void {
+    this.router.navigate(['../'])
   }
 
 }

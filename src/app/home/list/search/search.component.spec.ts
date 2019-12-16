@@ -38,7 +38,7 @@ describe('SearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create SearchComponent', () => {
     expect(component).toBeTruthy();
   });
 });

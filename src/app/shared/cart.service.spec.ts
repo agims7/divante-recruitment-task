@@ -15,7 +15,7 @@ describe('Service: CartService', () => {
     service = TestBed.get(CartService);
   });
 
-  it('should create', () => {
+  it('should create CartService', () => {
     expect(service).toBeTruthy();
   });
 

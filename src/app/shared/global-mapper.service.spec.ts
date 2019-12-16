@@ -15,7 +15,7 @@ describe('Service: GlobalMapperService', () => {
     service = TestBed.get(GlobalMapperService);
   });
 
-  it('should create', () => {
+  it('should create GlobalMapperService', () => {
     expect(service).toBeTruthy();
   });
 

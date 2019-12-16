@@ -21,10 +21,10 @@ import { Starship } from '@app/shared/models/starship.model';
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
-  let listRepository: ListRepositoryStub;
-  
+  const listRepository = new ListRepositoryStub();
+
   const activatedRouter = new ActivatedRouteStub();
-  activatedRouter.snapshot.data.starships = [new Starship()]
+  activatedRouter.snapshot.data.starships = [new Starship()];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -54,7 +54,7 @@ describe('ListComponent', () => {
           useValue: listRepository
         },
         {
-          provide: ActivatedRoute, 
+          provide: ActivatedRoute,
           useValue: activatedRouter
         },
       ],
@@ -63,14 +63,16 @@ describe('ListComponent', () => {
 
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
-    // fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it('should create ListComponent', () => {
     expect(component).toBeTruthy();
   });
 
   it('should return index on trackByIndex', () => {
-    // TO DO
+    const trackByIndexSpy = spyOn(component, 'trackByIndex');
+    component.trackByIndex(4);
+
+    expect(trackByIndexSpy).toHaveBeenCalledWith(4);
   });
 });

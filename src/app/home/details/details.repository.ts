@@ -25,13 +25,10 @@ export class DetailsRepository {
     }
 
     return this.http.get(
-        `${environment.url}/starships/${id}`,
-      )
-        .pipe(
-          map((response: any): Starship => {
-            this.starshipCache = this.globalMapperService.mapToStarship(response);
-            return this.starshipCache;
-          })
-        );
+      `${environment.url}/starships/${id}`,
+    )
+      .pipe(
+        map((response: any): Starship => this.globalMapperService.mapToStarship(response))
+      );
   }
 }

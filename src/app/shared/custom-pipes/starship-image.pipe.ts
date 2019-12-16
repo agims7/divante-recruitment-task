@@ -26,8 +26,7 @@ export class StarshipImagePipe implements PipeTransform {
     ) {
       return `../../../assets/img/${imageName}.jpg`;
     }
-    
-    return this.defaultImageUrl + imageWidth
+    return this.defaultImageUrl + imageWidth;
   }
 
 }

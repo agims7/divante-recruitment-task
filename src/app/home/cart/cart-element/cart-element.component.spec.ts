@@ -9,9 +9,8 @@ import { Starship } from '@app/shared/models/starship.model';
 describe('CartElementComponent', () => {
   let component: CartElementComponent;
   let fixture: ComponentFixture<CartElementComponent>;
-  let cartService: CartServiceStub;
 
-  // const removeFromCartSpy = spyOn(CartService, 'removeFromCart');
+  const cartService = new CartServiceStub();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,7 +18,7 @@ describe('CartElementComponent', () => {
         CartElementComponent
       ],
       imports: [
-        // Mateiral
+        // Material
         MatIconModule,
       ],
       providers: [
@@ -52,16 +51,19 @@ describe('CartElementComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create CartElementComponent', () => {
     expect(component).toBeTruthy();
   });
 
   it('should remove starship from cartService starships array', () => {
     component.removeFromCart();
-    expect(cartService.starships).toBe([]);
+    expect(cartService.starships).toEqual([]);
   });
 
   it('should send onCartChange event with value null to cartService', () => {
-    // TO DO
+    const removeFromCartSpy = spyOn(cartService.onCartChange, 'next');
+    component.removeFromCart();
+
+    expect(removeFromCartSpy).toHaveBeenCalledWith(null);
   });
 });
